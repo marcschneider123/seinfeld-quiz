@@ -1,0 +1,32 @@
+///
+// insert arrow as pseudo element
+//
+@mixin iconArrowAfter($color: $c-black, $size: 1rem)
+	&:after
+		$icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='17.871' height='18.247'><path d='M1.875 9.059h14.121' fill='#e94847' stroke='#{$color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3.75'/><path d='M9.033 15.597l6.963-6.474L9.033 2.65' fill='none' stroke='#{$color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3.75'/></svg>")
+		background-image: escape-svg($icon)
+		background-repeat: no-repeat
+		background-position: center
+		transform: translateX(-50%) translateY(-50%)
+		content: ''
+		left: 50%
+		height: $size
+		position: absolute
+		top: 50%
+		transition: all .5s
+		width: $size
+
+@mixin iconCheckmarkAfter($color: $c-black, $size: 1rem)
+	&:after
+		$icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20.11 17.48'><path stroke='#{$color}' fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='3.75' d='M1.88 4.61v11L18.23 1.88'/></svg>")
+		background-image: escape-svg($icon)
+		background-repeat: no-repeat
+		background-position: center
+		content: ''
+		left: 50%
+		height: $size
+		position: absolute
+		top: 50%
+		transform: translateX(-50%) translateY(-50%)
+		transition: all .5s
+		width: $size

@@ -1,0 +1,268 @@
+// answer icon transitions (arrow to checkmark)
+@keyframes iconFade
+	0%
+		opacity: 0
+	100%
+		opacity: 1
+
+$trackTransition: 500ms
+@keyframes trackFadeIn
+	0%
+		opacity: 0
+	50%
+		opacity: 0
+	100%
+		opacity: 1
+
+$circleIconTransition: 3s
+@keyframes circleIcon-icon2
+	0%
+		opacity: 1
+	50%
+		opacity: 0
+	100%
+		opacity: 1
+
+@keyframes circleIcon-icon1
+	0%
+		opacity: 0
+	50%
+		opacity: 1
+	100%
+		opacity: 0
+
+.quiz
+	position: relative
+
+.quiz
+
+	&__answers-list
+		padding-top: 1rem
+
+		li + li
+			margin-top: 1rem
+
+	// BEGIN quiz__answer
+	&__answer
+		align-items: center
+		display: flex
+		font-size: 17px
+
+		&:hover
+			cursor: pointer
+
+		&-icon
+			background-color: $c-black
+			display: inline-block
+			padding: 2rem 1.5rem
+			position: relative
+			color: $c-white
+			margin-right: 1rem
+			//margin-top: 1.5rem
+
+			+iconArrowAfter($c-white, 2rem)
+
+		&.success:before, &.danger:before, &.warning:before
+			animation-name: iconFade
+			animation-duration: 1.5s
+			animation-iteration-count: 1
+
+		// answer states
+		// - danger: wrong answer clicked
+		// - success: right answer clicked
+		// - warning: wrong answer clicked, right answer higlighted
+		&.success
+			.quiz__answer-icon
+				background-color: $c-mint
+				+iconCheckmarkAfter($c-black, 2rem)
+		&.danger
+			color: $danger
+			.quiz__answer-icon
+				background-color: $danger
+				+iconArrowAfter($c-black, 2rem)
+		&.warning
+			.quiz__answer-icon
+				background-color: $c-white
+				+iconArrowAfter($c-black, 2rem)
+
+	// END quiz__answer
+
+	&__btn
+		$iconOffset: 3.5rem
+		background-color: $c-white
+		display: inline-block
+		font-size: 20px
+		font-weight: bold
+		margin-right: $iconOffset
+		position: relative
+		padding: 1rem
+		text-align: center
+		width: 160px
+
+		&:hover
+			background-color: $c-black
+			color: $c-white
+
+		&:after
+			background: url("img/arrow-right_white.png") no-repeat center center $c-black
+			background-size: 50px
+			bottom: 0
+			content: ''
+			display: block
+			padding: 1rem 1.75rem
+			position: absolute
+			top: 0
+			right: -$iconOffset
+			transition: all $trans
+
+	&__content
+		display: flex
+		justify-content: space-between
+		flex-direction: column
+
+	&__container
+		background-color: $c-yellow
+		min-height: 610px
+		padding: 2rem
+
+	&__counter
+		font-size: 20px
+
+	&__img
+		line-height: .9
+		@include media-breakpoint-down(lg)
+			margin-bottom: 2rem
+
+	// BEGIN quiz__overlay
+	&__overlay
+		align-items: center
+		background-color: $c-grey
+		display: flex
+		flex-direction: column
+		height: 100%
+		justify-content: flex-start
+		left: 0
+		opacity: 0
+		visibility: hidden
+		position: absolute
+		top: 0
+		width: 100%
+		z-index: -1
+
+		&.active
+			transition: all 500ms ease-in-out
+			opacity: 1
+			visibility: visible
+			z-index: 2
+
+		&--bg-yellow
+			background-color: $c-yellow
+
+		.overlay__content
+			margin-top: 50px
+			text-align: center
+
+		.overlay__title
+			color: $c-black
+			font-size: 72px
+			font-weight: bold
+			line-height: 72px
+			margin-bottom: 5rem
+			text-transform: none
+	// END quiz__overlay
+
+	&__question
+		color: $c-red
+		font-size: 1.25rem
+		font-weight: bold
+
+	&__circleIcon
+		background-color: $c-mint
+		color: $c-white
+		border-radius: 50%
+		font-size: 230px
+		font-weight: bold
+		height: 250px
+		line-height: 1
+		margin-bottom: 6rem
+		margin-left: auto
+		margin-right: auto
+		position: relative
+		width: 250px
+
+		img
+			width: 100%
+			height: 100%
+
+		span
+			top: 50%
+			left: 50%
+			transform: translateX(-50%) translateY(-50%)
+			display: flex
+			justify-content: center
+			align-items: center
+			position: absolute
+
+		&.animate span
+			&.icon1
+				animation: circleIcon-icon1 $circleIconTransition infinite
+				transform: translateX(-50%) translateY(-50%) rotate(1.5deg)
+			&.icon2
+				animation: circleIcon-icon2 $circleIconTransition infinite
+				transform: translateX(-50%) translateY(-50%) rotate(-1.5deg)
+
+	&__dots
+		li
+			display: inline-block
+			background-color: $c-white
+			border-radius: 50%
+			height: 1rem
+			margin-left: 1rem
+			margin-top: 6px
+			width: 1rem
+
+			&.success
+				background-color: $c-mint
+			&.danger
+				background-color: $c-grey
+
+	&__navigation
+		align-items: center
+		display: flex
+		justify-content: space-between
+		margin-bottom: 2rem
+	&__headline
+		color: $c-red
+		font-family: Serif
+		font-size: 3rem
+		font-weight: bold
+		margin-bottom: 3rem
+
+	&__slide
+		left: 0
+		opacity: 0
+		position: absolute
+		top: 0
+		transform: translateX(-100%)
+
+		&.active
+			position: static
+			opacity: 1
+			transform: translateX(0)
+
+	&__subline
+		font-size: 20px
+		margin-bottom: 1rem
+
+	&__track
+		position: relative
+		opacity: 0
+
+		&.active
+			animation: trackFadeIn $trackTransition 1
+			opacity: 1
+
+	// results slide
+	&__slide--result
+		text-align: center
+		margin-top: 50px

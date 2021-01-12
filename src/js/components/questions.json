@@ -1,0 +1,52 @@
+[
+  {
+    "question": "What Manhattan neighborhood did Jerry reside in?",
+    "img": "1.jpg",
+    "answers": [
+      "Lower East Side",
+      "Upper West Side",
+      "Soho"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Which Seinfeld writer voiced George Steinbrenner on and off from seasons five through nine?",
+    "img": "2.jpg",
+    "answers": [
+      "Larry David",
+      "Larry Charles",
+      "Peter Mehlman"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "In season six’s “The Doorman,” Frank Costanza wants to name the chest-support garment he and Kramer invent “the Manssiere,” but Kramer prefers…",
+    "img": "3.jpg",
+    "answers": [
+      "the Bro",
+      "the Breast Man",
+      "the Buddy System"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Which of these occupations did George’s alias, Art Vandelay, NOT purport to peddle in?",
+    "img": "4.jpg",
+    "answers": [
+      "latex salesman",
+      "garbageman",
+      "importer-exporter"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "question": "Midway through season eight, Kramer lost plenty of sleep, thanks to this fledgling fast-food chain’s giant neon sign:",
+    "img": "5.jpg",
+    "answers": [
+      "Boston Market",
+      "Dallas BBQ",
+      "Kenny Rogers Roasters"
+    ],
+    "correctAnswer": 2
+  }
+]
