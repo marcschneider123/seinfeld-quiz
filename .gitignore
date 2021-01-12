@@ -27,10 +27,9 @@ yarn-error.log
 .env
 
 # public folder
-/public/*
-!/public/images/
-!/public/favicon.ico
-!/public/index.php
-!/public/index.html
+/public/assets/css
+/public/assets/js
+/public/assets/mix-manifest.json
+
 composer.lock
 package-lock.json

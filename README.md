@@ -6,6 +6,10 @@ Seinfeld quiz with
 * vue 2
 * laravel-mix config
 
+## Demo
+
+Visit http://seinfeld-quiz.rf.gd/
+
 ## Installation
 
 * `yarn install`
@@ -16,6 +20,9 @@ Seinfeld quiz with
 * `yarn dev` build with sourcemaps
 * `yarn prod` minified production build
 * `yarn watch` development with browsersync (`.env` required)
+
+## Additional Info
+The webservers document root must be set to public/
 
 # possible errors
 
